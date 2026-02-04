@@ -2,20 +2,17 @@
 import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.doReturn;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class NaiveSortTest {
 
 	String[] promotionOrder = null;
@@ -33,28 +30,28 @@ public class NaiveSortTest {
 		}
 	}
 
-    @BeforeClass
+	@BeforeAll
     public static void beforeClass() {
         // This method will be executed once on initialization time
     }
-    
-	@Before
+
+	@BeforeEach
 	public void before() {
 		// This method will be executed once before each test execution
 		promotionOrder = new String[] { "mz", "mx", "my" };
     }
 
-    @AfterClass
+    @AfterAll
     public static void afterClass() {
         // This method will be executed once when all tests are executed
     }
 
-    @After
+    @AfterEach
     public void after() {
         // This method will be executed once after each test execution
     }
     
-	@Test
+	@org.junit.jupiter.api.Test
 	public void carInvMoreThan3Cars() {
 		String[] carInventory = new String[] { "mz", "my", "my", "mx", "mz", "mx", "my", "mz" };
 
